@@ -1,15 +1,23 @@
 package com.example.projAutenticator2Infnet.user;
 
+import com.example.projAutenticator2Infnet.services.JwtService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    JwtService jwtService;
 
     @Autowired
     UserRepository userRepository;
